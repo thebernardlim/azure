@@ -19,13 +19,13 @@ Project will strictly use Azure services and use follow the Lambda architecture.
 
 ##### Pipeline - Overall
 
-![alt text][logo]
+![alt text][logo1]
 
-[logo]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/data-factory-pipeline-v1.PNG ""
+[logo1]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/data-factory-pipeline-v1.PNG ""
 
 ##### Pipeline Activity - Data Flow
 
-![alt text][logo]
+![alt text][logo2]
 
-[logo]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/data-factory-pipeline-dataflow-v1.PNG ""
+[logo2]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/data-factory-pipeline-dataflow-v1.PNG ""
 
