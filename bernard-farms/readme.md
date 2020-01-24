@@ -7,8 +7,25 @@ Project will strictly use Azure services and use follow the Lambda architecture.
 
 ## Solution
 
-High Level Architecture diagram (Unrefined, first iteration):
+### Initial Iteration
+
+#### High Level Architecture diagram 
 
 ![alt text][logo]
 
-[logo]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/bernard-farms-architecture-diagram-v1.png "Logo Title Text 2"
+[logo]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/bernard-farms-architecture-diagram-v1.png ""
+
+#### Data Factory
+
+##### Pipeline - Overall
+
+![alt text][logo]
+
+[logo]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/data-factory-pipeline-v1.PNG ""
+
+##### Pipeline Activity - Data Flow
+
+![alt text][logo]
+
+[logo]: https://github.com/thebernardlim/azure/blob/master/bernard-farms/images/data-factory-pipeline-dataflow-v1.PNG ""
+
