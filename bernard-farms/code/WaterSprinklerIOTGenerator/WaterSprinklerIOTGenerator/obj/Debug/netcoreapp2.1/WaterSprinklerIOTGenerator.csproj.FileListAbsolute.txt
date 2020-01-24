@@ -1,0 +1,11 @@
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\bin\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.deps.json
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\bin\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.runtimeconfig.json
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\bin\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.runtimeconfig.dev.json
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\bin\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.dll
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\obj\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.csprojAssemblyReference.cache
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\obj\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.csproj.CoreCompileInputs.cache
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\obj\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.AssemblyInfoInputs.cache
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\obj\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.AssemblyInfo.cs
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\bin\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.pdb
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\obj\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.dll
+C:\Users\bernard.chye.h.lim\Desktop\B\Learn\Projects\Farm\WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator\obj\Debug\netcoreapp2.1\WaterSprinklerIOTGenerator.pdb

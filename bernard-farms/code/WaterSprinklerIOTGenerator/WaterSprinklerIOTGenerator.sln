@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaterSprinklerIOTGenerator", "WaterSprinklerIOTGenerator\WaterSprinklerIOTGenerator.csproj", "{B76A9D1A-5B88-488E-A5A1-617D0FDE0FD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B76A9D1A-5B88-488E-A5A1-617D0FDE0FD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B76A9D1A-5B88-488E-A5A1-617D0FDE0FD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B76A9D1A-5B88-488E-A5A1-617D0FDE0FD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B76A9D1A-5B88-488E-A5A1-617D0FDE0FD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B231912-7192-4065-997E-F4147F94349B}
+	EndGlobalSection
+EndGlobal

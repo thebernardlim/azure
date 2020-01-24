@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\bernard.chye.h.lim\\Desktop\\B\\Learn\\Projects\\Farm\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bernard.chye.h.lim\\Desktop\\B\\Learn\\Projects\\Farm\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bernard.chye.h.lim\\Desktop\\B\\Learn\\Projects\\Farm\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator.csproj",
+        "projectName": "WaterSprinklerIOTGenerator",
+        "projectPath": "C:\\Users\\bernard.chye.h.lim\\Desktop\\B\\Learn\\Projects\\Farm\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator.csproj",
+        "packagesPath": "C:\\Users\\bernard.chye.h.lim\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bernard.chye.h.lim\\Desktop\\B\\Learn\\Projects\\Farm\\WaterSprinklerIOTGenerator\\WaterSprinklerIOTGenerator\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\bernard.chye.h.lim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.Azure.EventHubs": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
