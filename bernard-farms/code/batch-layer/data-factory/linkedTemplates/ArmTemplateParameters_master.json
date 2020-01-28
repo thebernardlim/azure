@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "bl-farms-data-factory"
+        },
+        "AzureDataLakeStorage_LinkedService_accountKey": {
+            "value": ""
+        },
+        "AzureSynapseAnalytics1_connectionString": {
+            "value": ""
+        },
+        "AzureBlobStorage1_connectionString": {
+            "value": ""
+        },
+        "AzureDatabricks1_accessToken": {
+            "value": ""
+        },
+        "AzureDataLakeStorage_LinkedService_properties_typeProperties_url": {
+            "value": "https://blfarmsdatalake.dfs.core.windows.net"
+        },
+        "containerUri": {
+            "value": ""
+        },
+        "containerSasToken": {
+            "value": ""
+        }
+    }
+}
