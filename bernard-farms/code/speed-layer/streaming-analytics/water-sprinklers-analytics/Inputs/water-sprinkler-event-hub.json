@@ -1,0 +1,20 @@
+{
+    "Name": "water-sprinkler-event-hub",
+    "Type": "Data Stream",
+    "DataSourceType": "Event Hub",
+    "EventHubProperties": {
+        "ServiceBusNamespace": "bl-farms",
+        "SharedAccessPolicyName": "RootManageSharedAccessKey",
+        "EventHubName": "water-sprinklers",
+        "SharedAccessPolicyKey": null
+    },
+    "PartitionKey": null,
+    "DataSourceCredentialDomain": null,
+    "Serialization": {
+        "Type": "Json",
+        "Encoding": "UTF8",
+        "FieldDelimiter": null
+    },
+    "CompressionType": "None",
+    "ScriptType": "Input"
+}

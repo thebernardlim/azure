@@ -1,0 +1,14 @@
+{
+    "name": "water-sprinklers-analytics",
+    "startFile": "Transformation.asaql",
+    "configurations": [
+        {
+            "filePath": "Configuration.json",
+            "subType": "JobConfig"
+        },
+        {
+            "filePath": "Inputs/water-sprinkler-event-hub.json",
+            "subType": "Input"
+        }
+    ]
+}

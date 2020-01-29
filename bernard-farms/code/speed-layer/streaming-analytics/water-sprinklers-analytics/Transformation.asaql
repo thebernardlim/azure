@@ -1,0 +1,16 @@
+SELECT
+    field_id,
+    DATEPART(dd,[EventEnqueuedUtcTime]) [day],
+    DATEPART(mm,[EventEnqueuedUtcTime]) [mth],
+    DATEPART(yy,[EventEnqueuedUtcTime]) [year],
+    SUM(amount)                         [amount] 
+INTO
+    [YourOutputAlias]
+FROM
+    [water-sprinkler-event-hub]
+GROUP BY 
+    TUMBLINGWINDOW(minute, 3), 
+    field_id,
+    DATEPART(dd,[EventEnqueuedUtcTime]),
+    DATEPART(mm,[EventEnqueuedUtcTime]),
+    DATEPART(yy,[EventEnqueuedUtcTime])
