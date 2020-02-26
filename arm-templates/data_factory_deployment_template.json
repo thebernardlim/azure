@@ -1,0 +1,181 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "type": "string",
+            "metadata": {
+                "description": "Data Factory name"
+            },
+            "defaultValue": "opemdftest"
+        },
+        "factoryLocation": {
+            "metadata": {
+                "description": "Data Factory Location"
+            },
+            "type": "String",
+            "defaultValue": "East Asia"
+        },
+        "targetSQLDBConnectionString": {
+            "type": "secureString",
+            "metadata": {
+                "description":"Connection String of target SQL DB"
+            },
+            "defaultValue": "Server={SQL Server Name},1433;Initial Catalog={DB Name};Persist Security Info=False;User ID={User ID};Password={User Password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+        },
+        "storedProcedures":{
+            "type": "String",
+            "metadata": {
+                "description": "List of Stored Procedures. If there are multiple stored procs, use ',' to separate."
+            },
+            "defaultValue": "dbo.teststoredproc, dbo.teststoredproclong"
+        },
+        "triggerFrequency": {
+            "type": "string",
+            "defaultValue": "Hour",
+            "allowedValues": [
+                "Hour",
+                "Minute",
+                "Second",
+                "Day",
+                "Week",
+                "Month",
+                "Year"
+            ],
+            "metadata": {
+                "description": "Trigger frequency type. Available values: Hour, Minute, Second, Day, Week, Month, Year"
+            }
+        },
+        "triggerInterval": {
+            "type": "string",
+            "metadata": {
+                "description": "How often the trigger will run. Value is any numeral. Eg: 1"
+            },
+            "defaultValue": "1"
+        },
+        "triggerStartDateTime": {
+            "type": "string",
+            "metadata": {
+                "description": "Trigger start datetime. Format: yyyy-mm-ddThh:mm:ssZ "
+            },
+            "defaultValue": "[utcNow('yyyy-MM-dd')]"
+        }
+    },
+    "variables": {
+        "factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]",
+        "storedprocnames":"[if (greaterOrEquals(length(split(parameters('storedProcedures'), ',')), 1), split(parameters('storedProcedures'), ','), parameters('storedProcedures')) ]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.DataFactory/factories",
+            "apiVersion": "2018-06-01",
+            "name": "[parameters('factoryName')]",
+            "location": "[parameters('factoryLocation')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {}
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/TargetSQLDB')]",
+            "type": "Microsoft.DataFactory/factories/linkedServices",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "type": "AzureSqlDatabase",
+                "typeProperties": {
+                    "connectionString": "[parameters('targetSQLDBConnectionString')]"
+                }
+            },
+            "dependsOn": [
+                "[variables('factoryId')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/pipeline1')]",
+            "type": "Microsoft.DataFactory/factories/pipelines",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "activities": [
+                    {
+                        "name": "ForEach1",
+                        "type": "ForEach",
+                        "dependsOn": [],
+                        "userProperties": [],
+                        "typeProperties": {
+                            "items": {
+                                "value": "@variables('spnames')",
+                                "type": "Expression"
+                            },
+                            "activities": [
+                                {
+                                    "name": "Execute Stored Proc",
+                                    "type": "SqlServerStoredProcedure",
+                                    "dependsOn": [],
+                                    "policy": {
+                                        "timeout": "7.00:00:00",
+                                        "retry": 0,
+                                        "retryIntervalInSeconds": 30,
+                                        "secureOutput": false,
+                                        "secureInput": false
+                                    },
+                                    "userProperties": [],
+                                    "typeProperties": {
+                                        "storedProcedureName": {
+                                            "value": "@trim(item())",
+                                            "type": "Expression"
+                                        }
+                                    },
+                                    "linkedServiceName": {
+                                        "referenceName": "TargetSQLDB",
+                                        "type": "LinkedServiceReference"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ],
+                 "variables": {
+                    "spnames": {
+                        "type": "Array",
+                        "defaultValue": "[variables('storedprocnames')]"
+                    }
+                },
+                "annotations": []
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/linkedServices/TargetSQLDB')]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('factoryName'), '/trigger1')]",
+            "type": "Microsoft.DataFactory/factories/triggers",
+            "apiVersion": "2018-06-01",
+            "properties": {
+                "annotations": [],
+                "runtimeState": "Started",
+                "pipelines": [
+                    {
+                        "pipelineReference": {
+                            "referenceName": "pipeline1",
+                            "type": "PipelineReference"
+                        },
+                        "parameters": {}
+                    }
+                ],
+                "type": "ScheduleTrigger",
+                "typeProperties": {
+                    "recurrence": {
+                        "frequency": "[parameters('triggerFrequency')]",
+                        "interval": "[parameters('triggerInterval')]",
+                        "startTime": "[parameters('triggerStartDateTime')]",
+                        "timeZone": "UTC"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[concat(variables('factoryId'), '/pipelines/pipeline1')]"
+            ]
+        }
+    ]
+}
