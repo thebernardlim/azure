@@ -1,0 +1,27 @@
+﻿{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "filename/{filename}",
+      "authLevel": "anonymous"
+    },
+    {
+      "name": "storage",
+      "type": "blob",
+      "direction": "out",
+      "connection": "blfarmsdatalake_STORAGE",
+      "path": "testoutput/{filename}.txt"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "generatedBy": "Microsoft.NET.Sdk.Functions-1.0.31",
+  "configurationSource": "attributes",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "route": "filename/{filename}",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "authLevel": "anonymous",
+      "name": "req"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../bin/http-trigger-to-blob-output-cs.dll",
+  "entryPoint": "http_trigger_to_blob_output_cs.Function1.Run"
+}
