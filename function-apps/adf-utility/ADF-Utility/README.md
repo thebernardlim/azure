@@ -1,4 +1,4 @@
-##Azure Data Factory Utility Function.
+Azure Data Factory Utility Function
 
 Comprises of various functions to communicate with ADF REST API.
 
