@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "4ab507f2-8778-4995-950a-efea6f68ba5e",
+		"name": "Azure ADF REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Query ADF Pipeline Run Status",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lastUpdatedAfter\": \"2018-06-16T00:36:44.3345758Z\",\r\n  \"lastUpdatedBefore\": \"2021-06-16T00:49:48.3686473Z\",\r\n  \"filters\": [\r\n    {\r\n      \"operand\": \"PipelineName\",\r\n      \"operator\": \"Equals\",\r\n      \"values\": [\r\n        \"pipeline1\"\r\n      ]\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.DataFactory/factories/{{factoryName}}/queryPipelineRuns?api-version=2018-06-01",
+					"protocol": "https",
+					"host": [
+						"management",
+						"azure",
+						"com"
+					],
+					"path": [
+						"subscriptions",
+						"{{subscriptionId}}",
+						"resourceGroups",
+						"{{resourceGroupName}}",
+						"providers",
+						"Microsoft.DataFactory",
+						"factories",
+						"{{factoryName}}",
+						"queryPipelineRuns"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2018-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Run Single Instance ADF Pipeline",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lastUpdatedAfter\": \"2018-06-16T00:36:44.3345758Z\",\r\n  \"lastUpdatedBefore\": \"2021-06-16T00:49:48.3686473Z\",\r\n  \"filters\": [\r\n    {\r\n      \"operand\": \"PipelineName\",\r\n      \"operator\": \"Equals\",\r\n      \"values\": [\r\n        \"pipeline1\"\r\n      ]\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://management.azure.com/subscriptions/{{subscriptionId}}/resourceGroups/{{resourceGroupName}}/providers/Microsoft.DataFactory/factories/{{factoryName}}/queryPipelineRuns?api-version=2018-06-01",
+					"protocol": "https",
+					"host": [
+						"management",
+						"azure",
+						"com"
+					],
+					"path": [
+						"subscriptions",
+						"{{subscriptionId}}",
+						"resourceGroups",
+						"{{resourceGroupName}}",
+						"providers",
+						"Microsoft.DataFactory",
+						"factories",
+						"{{factoryName}}",
+						"queryPipelineRuns"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2018-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get AAD Token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "37d715e9-4f77-4867-919a-1f51557500f1",
+						"exec": [
+							"pm.test(pm.info.requestName, () => {",
+							"   pm.response.to.not.be.error;",
+							"   pm.response.to.not.have.jsonBody('error');",
+							"});",
+							"pm.globals.set(\"bearerToken\", pm.response.json().access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{clientId}}",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{clientSecret}}",
+							"type": "text"
+						},
+						{
+							"key": "resource",
+							"value": "{{resource}}",
+							"type": "text"
+						},
+						{
+							"key": "subscriptionId",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://login.microsoftonline.com/{{tenantId}}/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"login",
+						"microsoftonline",
+						"com"
+					],
+					"path": [
+						"{{tenantId}}",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ADF Latest Pipeline Status By Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://checkdfpipeline.azurewebsites.net/api/GetStatusByNameOnly?tenantId=e9c9ac69-82c9-4ba1-ba6d-958133f28ffa&applicationId=74a3781c-5d58-475b-80d8-145552a56b00&authenticationKey={{clientSecret}}&subscriptionId=577cbe45-34e4-450b-820c-1e14f838ac4f&resourceGroup=opem&factoryName=bldf&pipelineName=pipeline1",
+					"protocol": "https",
+					"host": [
+						"checkdfpipeline",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"GetStatusByNameOnly"
+					],
+					"query": [
+						{
+							"key": "tenantId",
+							"value": "e9c9ac69-82c9-4ba1-ba6d-958133f28ffa"
+						},
+						{
+							"key": "applicationId",
+							"value": "74a3781c-5d58-475b-80d8-145552a56b00"
+						},
+						{
+							"key": "authenticationKey",
+							"value": "{{clientSecret}}"
+						},
+						{
+							"key": "subscriptionId",
+							"value": "577cbe45-34e4-450b-820c-1e14f838ac4f"
+						},
+						{
+							"key": "resourceGroup",
+							"value": "opem"
+						},
+						{
+							"key": "factoryName",
+							"value": "bldf"
+						},
+						{
+							"key": "pipelineName",
+							"value": "pipeline1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create ADF Pipeline Run",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

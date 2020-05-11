@@ -19,7 +19,7 @@ using Microsoft.Azure.Management.DataFactory.Models;
 
 namespace CheckADFPipelineStatus
 {
-    public static class RunPipelineByName
+    public static class RunSingleInstancePipelineByName
     {
 
         const string STATUS_SUCCEEDED = "Succeeded";
@@ -41,7 +41,7 @@ namespace CheckADFPipelineStatus
         /// Gets the status of a data factory pipeline by name assuming the
         /// pipeline was executed within a recent time period.
         /// </summary>
-        [FunctionName("RunPipelineByName")]
+        [FunctionName("RunSingleInstancePipelineByName")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)

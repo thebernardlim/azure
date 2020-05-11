@@ -12,6 +12,4 @@ Made my own modifications on top of original source code.
 - GetAndWaitForStatusByName: Get and wait for status by pipeline name
 - GetStatusByNameAndRunId: Get and wait for status by pipeline name and run ID
 - GetStatusByNameOnly.cs: Get and wait for status of latest run of pipeline
-- RunPipelineByName.cs: Run pipeline by name, and only run when there is no existing run in progress.
-
-
+- RunSingleInstancePipelineByName.cs: Run pipeline by name, and only run when there is no existing run in progress.
