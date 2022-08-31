@@ -51,7 +51,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -ManagedDiskId $NewDisk.Id 
 # Create the virtual machine
 $NewVM = New-AzVM -ResourceGroupName $ResGroup -Location $Location -VM $VirtualMachine
 
-# Run 'Disable NLA' Command to allow remote access
+# Run 'Disable NLA' Command to allow RDP access
 Invoke-AzVMRunCommand -ResourceGroupName $ResGroup -Name $VMName -CommandId 'DisableNLA' 
 
 # Restart VM for changes to take effect
