@@ -3,6 +3,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 
+//Source: https://learn.microsoft.com/en-us/rest/api/eventhub/generate-sas-token
+
 namespace ServiceBusSASTokenGenerator
 {
     internal class Program
